@@ -1,5 +1,8 @@
 const { session } = require("passport");
 
+//require dotenv
+require('dotenv').config()
+
 // //mongodDB atlas
 // mongodb+srv://Admin1104:<password>@cluster0.ogvqh.mongodb.net/<dbname>?retryWrites=true&w=majority
 
@@ -16,7 +19,7 @@ var express         =require("express"),
     Comment         =require("./models/comment.js"),
     User            =require("./models/user.js");
     // seedDB          =require("./seeds.js");
-
+    
 //requiring routes    
 var commentRoutes       =require("./routes/comments.js"),
     campgroundRoutes    =require("./routes/campgrounds.js"),
