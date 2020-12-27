@@ -19,6 +19,8 @@ var express         =require("express"),
     Comment         =require("./models/comment.js"),
     User            =require("./models/user.js");
     // seedDB          =require("./seeds.js");
+
+var dbUrl=process.env.DB_URL;
     
 //requiring routes    
 var commentRoutes       =require("./routes/comments.js"),
@@ -30,7 +32,7 @@ var commentRoutes       =require("./routes/comments.js"),
 mongoose.set('useUnifiedTopology', true);
 //COMPULSORY LINE 2---connect to mongod (mongoDB server)
 // mongoose.connect("mongodb://localhost/yelp_camp16", { useNewUrlParser: true });
-mongoose.connect("mongodb+srv://Admin1104:<password>@cluster0.ogvqh.mongodb.net/<dbname>?retryWrites=true&w=majority",{
+mongoose.connect(dbUrl,{
     useNewUrlParser:true,
     useCreateIndex:true
 }).then(()=>{
