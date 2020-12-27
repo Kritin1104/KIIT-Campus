@@ -31,12 +31,14 @@ var commentRoutes       =require("./routes/comments.js"),
 //COMPULSORY LINE 1
 mongoose.set('useUnifiedTopology', true);
 //COMPULSORY LINE 2---connect to mongod (mongoDB server)
-// mongoose.connect("mongodb://localhost/yelp_camp16", { useNewUrlParser: true });
+// mongoose.connect(dbUrl, { useNewUrlParser: true });
+console.log(dbUrl);
+//====for heroku and local,according to the reqmt=====
 mongoose.connect(dbUrl,{
     useNewUrlParser:true,
     useCreateIndex:true
 }).then(()=>{
-    console.log("Connected to DB!");
+    console.log("Connected to DATABase!");
 }).catch((err)=>{
     console.log("ERROR",err.message);
 });
