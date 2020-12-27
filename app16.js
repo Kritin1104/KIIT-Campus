@@ -1,5 +1,9 @@
 const { session } = require("passport");
 
+// //mongodDB atlas
+// mongodb+srv://Admin1104:<password>@cluster0.ogvqh.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+
 var express         =require("express"),
     app16            =express(),
     bodyParser      =require("body-parser"),
@@ -22,8 +26,15 @@ var commentRoutes       =require("./routes/comments.js"),
 //COMPULSORY LINE 1
 mongoose.set('useUnifiedTopology', true);
 //COMPULSORY LINE 2---connect to mongod (mongoDB server)
-mongoose.connect("mongodb://localhost/yelp_camp16", { useNewUrlParser: true });
-
+// mongoose.connect("mongodb://localhost/yelp_camp16", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://Admin1104:<password>@cluster0.ogvqh.mongodb.net/<dbname>?retryWrites=true&w=majority",{
+    useNewUrlParser:true,
+    useCreateIndex:true
+}).then(()=>{
+    console.log("Connected to DB!");
+}).catch((err)=>{
+    console.log("ERROR",err.message);
+});
 
 //tell express to use body-parser
 app16.use(bodyParser.urlencoded({extended: true}));
