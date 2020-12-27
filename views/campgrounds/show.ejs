@@ -1,0 +1,76 @@
+<%- include("../partials/header.ejs") %>
+    
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <!-- cards start here -->
+                <div class="card mb-3">
+                    <img src="<%=campground.image%>" class="card-img-top" alt="<%=campground.name%>">
+                    <div class="card-body">
+                      <h5 class="card-title"><%=campground.name%></h5>
+                      <p>
+                        <em>Posted By <%=campground.author.username%>,<%=moment(campground.createdAt).fromNow()%></em>
+                      </p>  
+                      <hr>
+                      <p class="card-text"><%=campground.description%></p>  
+                      <%if(currentUser && campground.author.id.equals(currentUser._id)){%>
+                          <a class="btn btn-sm btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit Campus</a>                    
+                          <form class="delete-form" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                              <button class="btn btn-sm btn-danger">Delete Campus</button>
+                          </form>
+                      <%}%>
+
+                    </div>
+                </div>
+                <!-- ================== -->
+
+                <div class="card">
+                    <div class="card-body">
+                    <div class="text-right">
+                        <a class="btn btn-sm btn-success" href="/campgrounds/<%=campground._id%>/comments/new">Add New Comment</a>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <% for(var i=0;i<campground.comments.length;i++){ %>
+                            <div class="col-md-12 mb-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="float-left">
+                                            <p class="card-title"><strong><%=campground.comments[i].author.username%></strong></p>
+                                            <p class="card-text"><%=campground.comments[i].text%></p>
+                                        </div>
+
+                                        <div class="float-right">
+                                            <p><%= moment(campground.comments[i].createdAt).fromNow()%></p>
+                                        
+                                    
+                                            <%if(currentUser && campground.comments[i].author.id.equals(currentUser._id)){%>
+                                                <div class="float-right">
+                                                    <a class="btn btn-sm btn-warning" 
+                                                        href="/campgrounds/<%=campground._id%>/comments/<%=campground.comments[i]._id%>/edit">
+                                                        Edit Comment
+                                                    </a>
+                                                    <form class="delete-form" action="/campgrounds/<%=campground._id%>/comments/<%=campground.comments[i]._id%>?_method=DELETE" method="POST">
+                                                        <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                                                    </form>
+                                                </div>
+                                            <%}%>  
+                                        </div>  
+                                    </div>
+                                </div>      
+                            </div> <!--this one-->
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="col-md-2">
+            </div>
+
+        </div>
+    
+    
+<%- include("../partials/footer.ejs") %>

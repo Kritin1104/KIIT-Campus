@@ -1,0 +1,106 @@
+body {
+    background-color: #000;
+  }
+
+#landing-header {
+    /* a webpage can be viewed on a 3d plane. z-axis shows forward and backward.
+    Here,it is coming forwards towards us  */
+    z-index: 1;
+
+    /* to use z-index,we will have to use something other than default position:static */
+    position: relative;
+
+    /* to centre text and button ->horizontally*/
+    text-align: center;
+
+    /*one way to centre text and button ->vertically. vh=view height*/
+    padding-top: 40vh;
+}
+
+#landing-header h1 {
+    color: #fff;
+}
+
+.slideshow { 
+    position: fixed;
+    
+    /* width and height:100% takes up entire page */
+    width: 100%;
+    height: 100%;
+    
+    top: 0;
+    left: 0;
+
+    /* z-index:0 makes sure background images are behind other content */
+    z-index: 0;
+    
+    /* removes the bullet points */
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* styling individual list items */
+  /* select each list item inside unordered list */
+  .slideshow li { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    
+    /* Centres image perfectly on the page */
+    background-position: 50% 50%;
+    
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+
+    /* this actually allows us to fade images in and out */
+    animation: imageAnimation 50s linear infinite; 
+  } 
+
+  /* to actually give images for slideshow */
+  .slideshow li:nth-child(1) { 
+    background-image: url(https://lh3.googleusercontent.com/pw/ACtC-3fPTHofPqK3RifCo_JLWztsU8tah9vvyyp6iOYVTP1GuiJztC3Ewhqm3Zv6cPYeK4WLvHEpZCbEBdeInHkesuwPnNwWfXI3gPdfWrxl8y8hyHOySW-Tajj9Yk5w1kcYUSCu7m20EjRMvm5pZbvqJf_YAg=w1156-h867-no?authuser=0) 
+  }
+  .slideshow li:nth-child(2) { 
+    background-image: url(https://lh3.googleusercontent.com/pw/ACtC-3e0_1KOuJhjwYxE9a5ZTdB9xkAEbraGHpI8g2mGLDEzMeTPKSLfTVCzd8WIFKB_K-jKOQCFYgSXV1BvBsrs4dxDESFRBtXlfnVyAodoWLiw8GJWWabBXEupN_MnUqt0wSsF8yYUcTxN083m0gyA5fCAIQ=w1157-h867-no?authuser=0);
+    animation-delay: 10s; 
+  }
+  .slideshow li:nth-child(3) { 
+    background-image: url(https://lh3.googleusercontent.com/pw/ACtC-3etClPBXaNsrfNCwVou5NX1ct_pdZ81rtj908mz8bpINUuF_yI-UG5XHfRjDsFPyhi_0xDld4nEy6EyLakvL-YD0O3BpHeOFIvQlC2Szsvt5lS_MJ3ENeLh__R1zZknjxPf7b8YmPEFd_dON5vGLkgMtw=w1157-h867-no?authuser=0);
+    animation-delay: 20s; 
+  }
+  .slideshow li:nth-child(4) { 
+    background-image: url(https://lh3.googleusercontent.com/pw/ACtC-3c0ab-qIJg0-ZMOWcavrFS6tUBexblCr-XdBy7xdljW6ayWBI8UGxhD4iUTRSs-3FT-nqhYQqRbGzTkA74XIG9E6XIKVO3GGfWtUXaRNDHGRd3J9ulRDtt_8EqXMUf52aSYIHg3S2hK0_Q_ar4ol26aiA=w1155-h867-no?authuser=0);
+    animation-delay: 30s; 
+  }
+  .slideshow li:nth-child(5) { 
+    background-image: url(https://lh3.googleusercontent.com/pw/ACtC-3fH9TGRtgMLDh-ma018pKkapyPV8KOt8U6zGs6SSFqRBX3JCyW6wPhQdRIWlCc-iAkcOHm3HnUtxRBIh_-b6XcHwu0a2SmeCQYujrgwxdkDJWrXCuvX2wTuCJf12PICR6v4tWAVe3LF2X_9rJziYC4N_A=w1157-h867-no?authuser=0);
+    animation-delay: 40s; 
+  }
+
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }
+
+  /* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
