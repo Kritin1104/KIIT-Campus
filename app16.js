@@ -34,14 +34,18 @@ mongoose.set('useUnifiedTopology', true);
 // mongoose.connect(dbUrl, { useNewUrlParser: true });
 // console.log(dbUrl);
 //====for heroku and local,according to the reqmt=====
-mongoose.connect(dbUrl,{
-    useNewUrlParser:true,
-    useCreateIndex:true
-}).then(()=>{
-    console.log("Connected to DATABase!");
-}).catch((err)=>{
-    console.log("ERROR",err.message);
-});
+// mongoose.connect(dbUrl,{
+//     useNewUrlParser:true,
+//     useCreateIndex:true
+// }).then(()=>{
+//     console.log("Connected to DATABase!");
+// }).catch((err)=>{
+//     console.log("ERROR",err.message);
+// });
+
+mongoose.connect(dbUrl);
+
+
 
 //tell express to use body-parser
 app16.use(bodyParser.urlencoded({extended: true}));
