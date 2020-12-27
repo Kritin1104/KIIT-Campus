@@ -32,7 +32,7 @@ var commentRoutes       =require("./routes/comments.js"),
 mongoose.set('useUnifiedTopology', true);
 //COMPULSORY LINE 2---connect to mongod (mongoDB server)
 // mongoose.connect(dbUrl, { useNewUrlParser: true });
-console.log(dbUrl);
+// console.log(dbUrl);
 //====for heroku and local,according to the reqmt=====
 mongoose.connect(dbUrl,{
     useNewUrlParser:true,
