@@ -1,5 +1,5 @@
 //require dotenv
-require('dotenv').config()
+require('dotenv').config();
 
 const { session } = require("passport");
 
@@ -34,17 +34,17 @@ mongoose.set('useUnifiedTopology', true);
 // mongoose.connect(dbUrl, { useNewUrlParser: true });
 console.log(dbUrl);
  
-mongoose.connect(dbUrl,{ useNewUrlParser: true });
+// mongoose.connect(dbUrl,{ useNewUrlParser: true });
 
 //====for heroku and local,according to the reqmt=====
-// mongoose.connect(dbUrl,{
-//     useNewUrlParser:true,
-//     useCreateIndex:true
-// }).then(()=>{
-//     console.log("Connected to DATABase!");
-// }).catch((err)=>{
-//     console.log("ERROR",err.message);
-// });
+mongoose.connect(dbUrl,{
+    useNewUrlParser:true,
+    useCreateIndex:true
+}).then(()=>{
+    console.log("Connected to DATABase!");
+}).catch((err)=>{
+    console.log("ERROR",err.message);
+});
 
 
 
