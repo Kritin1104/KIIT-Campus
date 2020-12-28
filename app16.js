@@ -20,7 +20,7 @@ var express         =require("express"),
     User            =require("./models/user.js");
     // seedDB          =require("./seeds.js");
 
-var dbUrl=process.env.DB_URL || "mongodb://localhost/yelp_camp16";
+// var dbUrl=process.env.DB_URL || "mongodb://localhost/yelp_camp16";
     
 //requiring routes    
 var commentRoutes       =require("./routes/comments.js"),
@@ -32,12 +32,12 @@ var commentRoutes       =require("./routes/comments.js"),
 mongoose.set('useUnifiedTopology', true);
 //COMPULSORY LINE 2---connect to mongod (mongoDB server)
 // mongoose.connect(dbUrl, { useNewUrlParser: true });
-console.log(dbUrl);
+console.log(process.env.DB_URL);
  
 // mongoose.connect(dbUrl,{ useNewUrlParser: true });
 
 //====for heroku and local,according to the reqmt=====
-mongoose.connect(dbUrl,{
+mongoose.connect(process.env.DB_URL,{
     useNewUrlParser:true,
     useCreateIndex:true
 }).then(()=>{
