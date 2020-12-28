@@ -20,7 +20,7 @@ var express         =require("express"),
     User            =require("./models/user.js");
     // seedDB          =require("./seeds.js");
 
-// var dbUrl=process.env.DB_URL || "mongodb://localhost/yelp_camp16";
+var dbUrl=process.env.DB_URL || "mongodb://localhost/yelp_camp16";
     
 //requiring routes    
 var commentRoutes       =require("./routes/comments.js"),
@@ -37,7 +37,7 @@ console.log(process.env.DB_URL);
 // mongoose.connect(dbUrl,{ useNewUrlParser: true });
 
 //====for heroku and local,according to the reqmt=====
-mongoose.connect(process.env.DB_URL,{
+mongoose.connect(dbUrl,{
     useNewUrlParser:true,
     useCreateIndex:true
 }).then(()=>{
