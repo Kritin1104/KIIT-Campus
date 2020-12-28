@@ -20,7 +20,7 @@
                     <img src="<%= campgrounds[i].image %>" class="card-img-top" alt="<%=campgrounds[i].name%>">
                     <div class="card-body">
                       <h5 class="card-title"><%=campgrounds[i].name%></h5>
-                      <p class="card-text"><%=campgrounds[i].description%></p>
+                      <p class="card-text"><%=campgrounds[i].description.substring(0,50)%></p>
                       <a href="/campgrounds/<%=campgrounds[i]._id%>" class="btn btn-success">More Info</a>
                     </div>
                 </div>
