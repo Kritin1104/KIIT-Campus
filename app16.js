@@ -1,7 +1,7 @@
-const { session } = require("passport");
-
 //require dotenv
 require('dotenv').config()
+
+const { session } = require("passport");
 
 // //mongodDB atlas
 // mongodb+srv://Admin1104:<password>@cluster0.ogvqh.mongodb.net/MYDataBase?retryWrites=true&w=majority
@@ -20,7 +20,7 @@ var express         =require("express"),
     User            =require("./models/user.js");
     // seedDB          =require("./seeds.js");
 
-var dbUrl=process.env.DB_URL;
+var dbUrl=process.env.DB_URL || "mongodb://localhost/yelp_camp16";
     
 //requiring routes    
 var commentRoutes       =require("./routes/comments.js"),
@@ -33,7 +33,7 @@ mongoose.set('useUnifiedTopology', true);
 //COMPULSORY LINE 2---connect to mongod (mongoDB server)
 // mongoose.connect(dbUrl, { useNewUrlParser: true });
 console.log(dbUrl);
-
+ 
 mongoose.connect(dbUrl,{ useNewUrlParser: true });
 
 //====for heroku and local,according to the reqmt=====
