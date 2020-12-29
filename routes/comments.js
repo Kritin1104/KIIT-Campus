@@ -1,5 +1,5 @@
 var express=require("express");
-var router =express.Router({mergeParams:true}); //so as we get out of defining app(Version).js in every file 
+var router =express.Router({mergeParams:true});
 var Campground=require("../models/campground.js");
 var Comment=require("../models/comment.js");
 var middleware=require("../middleware");
