@@ -3,8 +3,6 @@ body {
   }
 
 #landing-header {
-    /* a webpage can be viewed on a 3d plane. z-axis shows forward and backward.
-    Here,it is coming forwards towards us  */
     z-index: 1;
 
     /* to use z-index,we will have to use something other than default position:static */
