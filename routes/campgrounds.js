@@ -1,5 +1,5 @@
 var express=require("express");
-var router =express.Router(); //so as we get out of defining app(Version).js in every file 
+var router =express.Router();
 var Campground=require("../models/campground.js");
 var middleware=require("../middleware");
 
@@ -15,7 +15,7 @@ router.get("/",function(req,res){
         }
         else
         {
-            res.render("campgrounds/index.ejs",{campgrounds:allCampgrounds,page:'campgrounds'});//first one->data that is in campgrounds.ejs and 2nd->the name of the variable on app7.js
+            res.render("campgrounds/index.ejs",{campgrounds:allCampgrounds,page:'campgrounds'});
         }
     });
     
@@ -32,7 +32,7 @@ router.post("/",middleware.isLoggedIn,function(req,res){
         id:req.user._id,
         username:req.user.username
     }
-    var newCampground={name:name,image:image,description:desc,author:author};//the 2nd thing after : is the one we declared in this route
+    var newCampground={name:name,image:image,description:desc,author:author};
     //create a new campground & save to DB
     Campground.create(newCampground,function(err,newlyCreated){
         if(err)
@@ -71,7 +71,6 @@ router.get("/:id",function(req,res){
             res.render("campgrounds/show.ejs",{campground:foundCampground});
         }
     })
-    // req.params.id
 });
 
 //EDIT CAMPGROUND ROUTE
