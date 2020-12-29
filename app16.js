@@ -3,10 +3,6 @@ require('dotenv').config();
 
 const { session } = require("passport");
 
-// //mongodDB atlas
-// mongodb+srv://Admin1104:<password>@cluster0.ogvqh.mongodb.net/MYDataBase?retryWrites=true&w=majority
-
-
 var express         =require("express"),
     app16            =express(),
     bodyParser      =require("body-parser"),
@@ -18,7 +14,6 @@ var express         =require("express"),
     Campground      =require("./models/campground.js"),
     Comment         =require("./models/comment.js"),
     User            =require("./models/user.js");
-    // seedDB          =require("./seeds.js");
 
 // var dbUrl=process.env.DB_URL || "mongodb://localhost/yelp_camp16";
     
@@ -27,12 +22,12 @@ var commentRoutes       =require("./routes/comments.js"),
     campgroundRoutes    =require("./routes/campgrounds.js"),
     indexRoutes         =require("./routes/index.js");
 
-//---------connect to DB-> kiit_campus DB is created if it does not already exists-------
+//---------connect to DB
 //COMPULSORY LINE 1
 mongoose.set('useUnifiedTopology', true);
 //COMPULSORY LINE 2---connect to mongod (mongoDB server)
 // mongoose.connect(dbUrl, { useNewUrlParser: true });
-console.log(process.env.DB_URL);
+// console.log(process.env.DB_URL);
  
 // mongoose.connect(dbUrl,{ useNewUrlParser: true });
 
